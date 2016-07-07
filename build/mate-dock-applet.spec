@@ -11,6 +11,9 @@ BuildRequires: python3
 BuildRequires: python3-scipy
 BuildRequires: python3-pillow
 BuildRequires: glib2-devel
+BuildRequires: automake
+
+%global debug_package %{nil} 
 
 %description
 An application dock applet for the MATE panel
@@ -33,7 +36,12 @@ make %{?_smp_mflags}
 %files
 %doc README.md
 %{_libdir}/mate-applets/mate-dock-applet/*
-%{_datadir}/*
+%{_datadir}/dbus-1/services/org.mate.panel.applet.DockAppletFactory.service
+%{_datadir}/glib-2.0/schemas/org.mate.panel.applet.dock.gschema.xml
+%{_datadir}/mate-panel/applets/org.mate.panel.DockApplet.mate-panel-applet
+
 
 %changelog
+* Mon Jul  7 2016 Matthew Oliver <matt@oliver.net.au> 
+- Created initial spec
 
